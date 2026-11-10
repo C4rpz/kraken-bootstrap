@@ -1,0 +1,3 @@
+- **Avant la fusion** : sur chaque pull request, `kraken / lint-test` lance `ruff check .` et `pytest` sur une machine vierge ; un test cassé fait échouer le check, ce que j'ai observé sur ma PR `test-casse`.
+- **Dockerfile** : `kraken / build-push` construit l'image à chaque PR (sans la pousser) ; un `Dockerfile` cassé fait donc échouer ce check avant d'atteindre `main`.
+- **Règle** : le ruleset sur `main` impose une PR et ces deux checks verts, donc aucun push direct ni fusion d'une PR rouge n'est possible.
